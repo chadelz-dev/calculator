@@ -175,3 +175,75 @@ If we used 25% instead of 21%:
 
 |--25%--|--25%--|--25%--|--25%--| = 100%
   btn1    btn2    btn3    btn4    (no room for spacing)
+
+// ////////////////////////////////////////////////////////////////////////////
+
+
+-- short notes on functions used:
+
+
+-- appendNumber(number):
+
+ - resets display if shouldResetDisplay is true.
+ - appends the provided number to the largerDisplay.
+
+
+-- appendDecimal():
+
+ - resets display if shouldResetDisplay is true.
+ - appends a decimal point if it doesn’t already exist in largerDisplay.
+
+
+-- setOperation(operator):
+
+ - evaluates current operation if an operator is already set.
+ - stores firstNumber and sets the operator.
+ - updates smallerDisplay and prepares for the next input.
+
+
+-- evaluate():
+
+ - returns early if no operator or display reset is needed.
+ - computes the result based on the operator (+, -, x, ÷).
+ - updates smallerDisplay with the operation and result.
+ - resets the operator and prepares for the next input.
+
+
+-- clear():
+
+ - resets both displays and clears all stored numbers and the operator.
+
+
+-- deleteLastInput():
+
+ - removes the last character from largerDisplay.
+
+
+-- togglePosNeg():
+
+ - toggles the sign of the current number in largerDisplay.
+
+
+-- convertToPercentage():
+
+ - converts the number in largerDisplay to a percentage and displays it with
+    2 decimal places.
+
+
+-- handleKeyboardInput(e):
+
+ - Handles keyboard inputs:
+
+   - numbers (0-9): Calls appendNumber.
+
+   - operators (+, -, x, ÷): Calls setOperation.
+
+   - equals (Enter, =): Calls evaluate.
+
+   - decimal (.): Calls appendDecimal.
+
+   - backspace: Calls deleteLastInput.
+
+   - escape: Calls clear.
+
+   - %: Calls convertToPercentage.
